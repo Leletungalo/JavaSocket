@@ -4,11 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class listeners implements ActionListener {
-    TextField field1, field2;
+    TextField field1;
 
     public listeners(TextField filed1){
         this.field1 = filed1;
-        this.field2 = field2;
     }
 
 
