@@ -27,12 +27,16 @@ public class Wechart extends JFrame {
         TextField sendText = new TextField();
         JButton sendButton =new JButton("send");
 
+        JButton fileLabel = new JButton("Choose a File");
+        TextField fileText = new TextField();
+        JButton fileSendButton =new JButton("up load");
+
+
         ipLabel.setSize(80,30);
         ipLabel.setLocation(150,150);
         ipAddress.setSize(200,30);
         ipAddress.setLocation(250,150);
-     //   port.setSize(200,30);
-       // port.setLocation(230,250);
+
         button1.setSize(150,30);
         button1.setLocation(480,150);
 
@@ -41,12 +45,26 @@ public class Wechart extends JFrame {
         sendLabel.setLocation(0,20);
         sendText.setSize(200,30);
         sendText.setLocation(150,20);
-        //   port.setSize(200,30);
-        // port.setLocation(230,250);
         sendButton.setSize(150,30);
         sendButton.setLocation(380,20);
 
+        fileLabel.setSize(130,30);
+        fileLabel.setLocation(0,80);
+        fileText.setSize(200,30);
+        fileText.setLocation(150,80);
+        fileSendButton.setSize(150,30);
+        fileSendButton.setLocation(380,80);
+
+
+
+
+        button1.setActionCommand("connect");
         button1.addActionListener(new listeners(ipAddress));
+
+        sendButton.addActionListener(new listeners(middlePanel));
+
+        fileLabel.setActionCommand("fileChooser");
+        fileLabel.addActionListener(new listeners(fileText));
 
         topPanel.add(button1);
         topPanel.add(ipAddress);
@@ -55,7 +73,10 @@ public class Wechart extends JFrame {
         bottomPanel.add(sendLabel);
         bottomPanel.add(sendText);
         bottomPanel.add(sendButton);
-      //  topPanel.add(port);
+
+        bottomPanel.add(fileLabel);
+        bottomPanel.add(fileText);
+        bottomPanel.add(fileSendButton);
 
 
         add(topPanel);
