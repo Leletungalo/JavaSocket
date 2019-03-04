@@ -18,18 +18,25 @@ public class listeners extends Component implements ActionListener {
         this.area = area;
     }
 
+    public listeners(TextArea msgarea,TextField sedField){
+        this.field = sedField;
+        this.area = msgarea;
+    }
+
     @Override
     public void actionPerformed(ActionEvent actionEvent) {
 
         if (actionEvent.getActionCommand().equals("connect")){
 
-            field.setText("lelethu");
         }else if (actionEvent.getActionCommand().equals("fileChooser")){
            selectAFile();
-        }else {
-            //area.setText("lelethu area");
 
-            /*final JFileChooser fc = new JFileChooser();
+        }else if (actionEvent.getActionCommand().equals("sendMessage")){
+            area.setText(field.getText());
+        }else {
+            area.setText("lelethu area");
+
+            final JFileChooser fc = new JFileChooser();
             fc.showOpenDialog(this);
 
             try {
@@ -43,10 +50,7 @@ public class listeners extends Component implements ActionListener {
 
             }catch (FileNotFoundException e){
                 System.out.println("file not found");
-            }*/
-
-
-            //  area.setText(filename);
+            }
         }
 
     }
@@ -54,7 +58,7 @@ public class listeners extends Component implements ActionListener {
     public File selectAFile(){
 
         JFileChooser chooser=new JFileChooser();
-        chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        //chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
         chooser.showSaveDialog(this);
 
         //String path = chooser.getSelectedFile().getAbsolutePath();
@@ -62,6 +66,18 @@ public class listeners extends Component implements ActionListener {
         field.setText(filename);
         return chooser.getSelectedFile();
     }
+
+   /* void testfile(){
+
+        try{
+        Scanner scan = new Scanner(selectAFile());
+        String line = scan.nextLine();
+        area.setText(line);
+        scan.close();
+        }catch (FileNotFoundException e){
+
+        }
+    }*/
 
 
 }

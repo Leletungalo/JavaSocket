@@ -10,7 +10,6 @@ public class Wechart extends JFrame {
         setLayout(new GridLayout(3,0));
 
         JPanel topPanel = new JPanel();
-        topPanel.setBackground(Color.gray);
         TextArea middlePanel = new TextArea();
         JPanel bottomPanel = new JPanel();
         topPanel.setLayout(null);
@@ -27,7 +26,7 @@ public class Wechart extends JFrame {
         TextField sendText = new TextField();
         JButton sendButton =new JButton("send");
 
-        JButton fileLabel = new JButton("Choose a File");
+        JButton fileChooser = new JButton("Choose a File");
         TextField fileText = new TextField();
         JButton fileSendButton =new JButton("up load");
 
@@ -48,8 +47,8 @@ public class Wechart extends JFrame {
         sendButton.setSize(150,30);
         sendButton.setLocation(380,20);
 
-        fileLabel.setSize(130,30);
-        fileLabel.setLocation(0,80);
+        fileChooser.setSize(130,30);
+        fileChooser.setLocation(0,80);
         fileText.setSize(200,30);
         fileText.setLocation(150,80);
         fileSendButton.setSize(150,30);
@@ -63,8 +62,11 @@ public class Wechart extends JFrame {
 
         sendButton.addActionListener(new listeners(middlePanel));
 
-        fileLabel.setActionCommand("fileChooser");
-        fileLabel.addActionListener(new listeners(fileText));
+        fileChooser.setActionCommand("fileChooser");
+        fileChooser.addActionListener(new listeners(fileText));
+
+        sendButton.setActionCommand("sendMessage");
+        sendButton.addActionListener(new listeners(middlePanel,sendText));
 
         topPanel.add(button1);
         topPanel.add(ipAddress);
@@ -74,7 +76,7 @@ public class Wechart extends JFrame {
         bottomPanel.add(sendText);
         bottomPanel.add(sendButton);
 
-        bottomPanel.add(fileLabel);
+        bottomPanel.add(fileChooser);
         bottomPanel.add(fileText);
         bottomPanel.add(fileSendButton);
 
